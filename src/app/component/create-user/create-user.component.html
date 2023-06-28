@@ -1,0 +1,57 @@
+<div *ngIf="createUserStatus === 'success'" class="alert alert-success">
+  Usuario creado exitosamente.
+</div>
+
+<div *ngIf="createUserStatus === 'error'" class="alert alert-danger">
+  Error al crear el usuario. Por favor, inténtalo nuevamente.
+</div>
+
+<form
+  class="row g-3"
+  [formGroup]="userFrom"
+  (ngSubmit)="send(userFrom.value)"
+  novalidate
+>
+  <div class="col-4">
+    <label for="inputName" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="inputname"
+      placeholder="1234 Main St"
+      formControlName="nombre"
+    />
+  </div>
+  <div class="col-md-2">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="inputEmail"
+      formControlName="email"
+    />
+  </div>
+
+  <div class="col-md-2">
+    <label for="sexo" class="form-label">Sexo</label>
+    <select id="sexo" class="form-select" formControlName="sexo">
+      <option selected>Elige tu sexo</option>
+      <option>Femenino</option>
+      <option>Masculinio</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="edad" class="form-label">Edad</label>
+    <input
+      type="number"
+      class="form-control"
+      id="edad"
+      formControlName="edad"
+    />
+  </div>
+  <div class="col-2">
+    <button type="submit" class="btn btn-primary" style="margin-top: 30px">
+      Crear
+    </button>
+  </div>
+</form>
